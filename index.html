@@ -466,18 +466,6 @@ body {
         sections.forEach(section => section.classList.remove('active'));
         document.getElementById(sectionId).classList.add('active');
     }
-    function showSection(sectionId) {
-    const sections = document.querySelectorAll('section'); // Selecciona todas las secciones
-    sections.forEach(section => {
-        section.style.display = 'none'; // Oculta todas las secciones
-    });
-    const targetSection = document.getElementById(sectionId); // Encuentra la sección objetivo
-    if (targetSection) {
-        targetSection.style.display = 'block'; // Muestra solo la sección objetivo
-    } else {
-        console.error(`No se encontró la sección con ID: ${sectionId}`);
-    }
-}
 
     // Función para mostrar/ocultar detalles de cortes (tu función existente)
     function toggleCortes(corteId) {
@@ -589,27 +577,11 @@ body {
         <p>📞 949202168 | 📍 Calle Jorge Luis Borges 16, 19002, Guadalajara</p>
     </header>
     <nav>
-        <section id="sobre-nosotros" style="display: none;">
-            <h2>Sobre Nosotros</h2>
-            <p>Bienvenido a nuestra peluquería...</p>
-        </section>
-        <section id="servicios" style="display: none;">
-            <h2>Servicios</h2>
-            <p>Consulta nuestros servicios exclusivos...</p>
-        </section>
-        <section id="horarios" style="display: none;">
-            <h2>Horarios</h2>
-            <p>Estamos abiertos de lunes a sábado...</p>
-        </section>
-        <section id="precios" style="display: none;">
-            <h2>Precios</h2>
-            <p>Consulta nuestras tarifas aquí...</p>
-        </section>
-        <section id="contacto" style="display: none;">
-            <h2>Contacto</h2>
-            <p>Contáctanos para más información...</p>
-        </section>
-        
+        <a href="#" onclick="showSection('sobre-nosotros')">Sobre Nosotros</a>
+        <a href="#" onclick="showSection('servicios')">Nuestros Servicios</a>
+        <a href="#" onclick="showSection('horarios')">Horarios</a>
+        <a href="#" onclick="showSection('precios')">Precios</a>
+        <a href="#" onclick="showSection('contacto')">Contacto</a>
     </nav>
     <div id="sobre-nosotros" class="section active">
         <h2>Sobre Nosotros</h2>
