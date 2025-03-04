@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peluquería Attrezzo's</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+            background-blend-mode: multiply;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #666;
+        }
+        .section {
+            padding: 20px;
+            display: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .active {
+            display: block;
+        }
+        .service-category {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .service-category div {
+            text-align: center;
+            cursor: pointer;
+        }
+        .service-category img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .cortes-detalle {
+            display: none;
+            margin-top: 20px;
+        }
+        .cortes-detalle ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cortes-detalle ul li {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .price-list {
+            margin-top: 20px;
+        }
+        .price-list h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .price-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .price-list ul li {
+            background-color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white !important;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  z-index: 9999;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.fab.fa-whatsapp {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Opcional: Animación de latido */
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+
+.whatsapp-btn:hover .fab.fa-whatsapp {
+  animation: pulse 1s infinite;
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .contact-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .reviews {
+            margin-top: 30px;
+        }
+        .review {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        .stars {
+            color: #f8d210;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Encabezado con logo */
+        header {
+            background: linear-gradient(135deg, #333, #555);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .logo-container h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        /* Menú de navegación */
+        nav {
+            background: #444;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 3px solid #25D366;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            display: inline-block;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #25D366;
+            color: black;
+        }
+
+        /* Secciones */
+        .section {
+            padding: 20px;
+            display: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Botón de WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white !important;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            z-index: 9999;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .fab.fa-whatsapp {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Encabezado con logo */
+        header {
+            background: linear-gradient(135deg, #333, #555);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .logo-container h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        /* Menú de navegación */
+        nav {
+            background: #444;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 3px solid #25D366;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            display: inline-block;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #25D366;
+            color: black;
+        }
+
+        /* Secciones */
+        .section {
+            padding: 20px;
+            display: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Sección Sobre Nosotros */
+        #sobre-nosotros {
+            background: linear-gradient(135deg, #b2eb93, #dfd0cc);
+            text-align: center;
+            padding: 40px;
+            color: #333;
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #sobre-nosotros h2 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        #sobre-nosotros p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        #sobre-nosotros img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+    </style>
+   <script>
+    // Función para mostrar secciones (tu función existente)
+    function showSection(sectionId) {
+        let sections = document.querySelectorAll('.section');
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Función para mostrar/ocultar detalles de cortes (tu función existente)
+    function toggleCortes(corteId) {
+        let cortesDetalle = document.getElementById(corteId);
+        if (cortesDetalle.style.display === "none" || cortesDetalle.style.display === "") {
+            cortesDetalle.style.display = "block";
+        } else {
+            cortesDetalle.style.display = "none";
+        }
+    }
+        // Función para mostrar secciones (tu función existente)
+        function showSection(sectionId) {
+            let sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Función para mostrar/ocultar detalles de cortes (tu función existente)
+        function toggleCortes(corteId) {
+            let cortesDetalle = document.getElementById(corteId);
+            if (cortesDetalle.style.display === "none" || cortesDetalle.style.display === "") {
+                cortesDetalle.style.display = "block";
+            } else {
+                cortesDetalle.style.display = "none";
+            }
+        }
+
+        // Funcionalidad del buzón de reseñas y valoraciones
+        document.addEventListener('DOMContentLoaded', function () {
+            // Cargar reseñas al iniciar la página
+            loadReviews();
+
+            // Manejar el envío del formulario de reseñas
+            const reviewForm = document.getElementById('reviewForm');
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Evitar que el formulario se envíe
+
+                    // Obtener los valores del formulario
+                    const name = document.getElementById('name').value;
+                    const rating = document.getElementById('rating').value;
+                    const comment = document.getElementById('comment').value;
+
+                    // Crear un objeto de reseña
+                    const review = {
+                        name: name,
+                        rating: rating,
+                        comment: comment,
+                        date: new Date().toLocaleDateString()
+                    };
+
+                    // Guardar la reseña en el localStorage
+                    saveReview(review);
+
+                    // Mostrar la reseña en la página
+                    displayReview(review);
+
+                    // Limpiar el formulario
+                    reviewForm.reset();
+                });
+            }
+        });
+
+        // Guardar reseña en el localStorage
+        function saveReview(review) {
+            let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews.push(review);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+        }
+
+        // Mostrar reseñas en la página
+        function displayReview(review) {
+            const reviewsList = document.getElementById('reviewsList');
+            if (reviewsList) {
+                const reviewElement = document.createElement('div');
+                reviewElement.classList.add('review');
+                reviewElement.innerHTML = `
+                    <strong>${review.name}</strong> - ${'⭐'.repeat(review.rating)}
+                    <p>${review.comment}</p>
+                    <small>${review.date}</small>
+                `;
+                reviewsList.prepend(reviewElement);
+            }
+        }
+
+        // Cargar reseñas guardadas al iniciar la página
+        function loadReviews() {
+            const reviewsList = document.getElementById('reviewsList');
+            if (reviewsList) {
+                let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+                reviews.forEach(review => displayReview(review));
+            }
+        }
+         // Función para mostrar secciones del menú
+         function showSection(sectionId) {
+            let sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="data:image/png;base64,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" alt="Logo de Peluquería Attrezzo's">
+            <h1>Peluquería Attrezzo's</h1>
+        </div>
+
+        <p>📞 949202168 | 📍 Calle Jorge Luis Borges 16, 19002, Guadalajara</p>
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('sobre-nosotros')">Sobre Nosotros</a>
+        <a href="#" onclick="showSection('servicios')">Nuestros Servicios</a>
+        <a href="#" onclick="showSection('horarios')">Horarios</a>
+        <a href="#" onclick="showSection('precios')">Precios</a>
+        <a href="#" onclick="showSection('contacto')">Contacto</a>
+    </nav>
+    <div id="sobre-nosotros" class="section active">
+        <h2>Sobre Nosotros</h2>
+        <p>Bienvenidos a Peluquería Attrezzo's, un espacio dedicado a realzar tu belleza y estilo con los más altos estándares de calidad. Desde nuestra fundación en 1999, nos hemos comprometido a ofrecer servicios de peluquería de excelencia, combinando técnicas innovadoras con un trato personalizado que nos distingue.</p>
+        <p>Ubicados en Guadalajara, calle Jorge Luis Borges 16, código postal 19002, nos enorgullece ser parte de esta vibrante comunidad. Nuestro equipo de estilistas altamente capacitados está siempre listo para brindarte el mejor servicio, ya sea que busques un corte moderno, un cambio de color o un peinado para una ocasión especial.</p>
+        <p>En Peluquería Attrezzo's, valoramos profundamente la confianza que nuestros clientes depositan en nosotros. Estamos sinceramente agradecidos por permitirnos ser parte de su vida y por elegirnos como su peluquería de confianza. Tu satisfacción es nuestra mayor recompensa, y nos esforzamos cada día para superar tus expectativas.</p>
+        <p>Gracias por ser parte de nuestra historia. Esperamos seguir sirviéndote y acompañándote en tu camino hacia un look único y espectacular.</p>
+        <img src="https://lh3.googleusercontent.com/p/AF1QipPAa8hrMd09B4E5F73CSZfJs1nMZ0oOapAaiPGs=s1360-w1360-h1020" width="550" height="350">
+        <a href="https://wa.me/34949202168" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Contacta con nosostros por WhatsApp
+          </a>
+    </div>
+    <div id="servicios" class="section">
+        <h2>Nuestros Servicios</h2>
+        <div class="service-category">
+            <div onclick="toggleCortes('cortes-chicos')">
+                <h3>Cortes de hombres</h3>
+                <img src="https://haircutday.com/b/wp-content/uploads/2024/01/Diseno-sin-titulo32-300x300.png" alt="Corte de Chico">
+                <p>Ofrecemos cortes modernos y clásicos para hombres, adaptados a tu estilo personal.</p>
+                <p>Haz click aquí para ver mas cortes que ofrecemos</p>
+            </div>
+            <div onclick="toggleCortes('cortes-chicas')">
+                <h3>Cortes de mujer</h3>
+                <img src="https://content.clara.es/medio/2024/08/26/cortes-de-pelo-corto-para-mujer-2024-sleek-bob_b8b95a93_240826112947_800x987.webp" alt="Corte de Chica">
+                <p>Descubre nuestros cortes y peinados para mujeres, diseñados para resaltar tu belleza única.</p>
+                <p>Haz click aquí para ver mas cortes que ofrecemos</p>
+            </div>
+        </div>
+        <div id="cortes-chicos" class="cortes-detalle">
+            <h3>Tipos de Cortes para Hombres</h3>
+            <ul>
+                <li>Corte clásico</li>
+                <li>Corte moderno</li>
+                <li>Fade</li>
+                <li>Undercut</li>
+                <li>Corte con textura</li>
+            </ul>
+        </div>
+        <div id="cortes-chicas" class="cortes-detalle">
+            <h3>Tipos de Cortes para Mujeres</h3>
+            <ul>
+                <li>Corte bob</li>
+                <li>Corte en capas</li>
+                <li>Corte pixie</li>
+                <li>Corte recto</li>
+                <li>Corte con flequillo</li>
+            </ul>
+        </div>
+    </div>
+    <div id="horarios" class="section">
+        <h2>Horarios</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Día</th>
+                    <th>Horario</th>
+                    <th>Trabajadoras de Mañana</th>
+                    <th>Trabajadoras de Tarde</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lunes</td>
+                    <td>9:30 - 14:30 // 16:30 - 21:00</td>
+                    <td>Andrea, Angela y Nuria</td>
+                    <td>Raquel, Andrea</td>
+                </tr>
+                <tr>
+                    <td>Martes</td>
+                    <td>9:30 - 14:30 // 16:30 - 21:00</td>
+                    <td>Andrea, Angela y Nuria</td>
+                    <td>Raquel, Andrea</td>
+                </tr>
+                <tr>
+                    <td>Miércoles</td>
+                    <td>9:30 - 14:30 // 16:30 - 21:00</td>
+                    <td>Angela, Nuria</td>
+                    <td>Raquel, Adrea</td>
+                </tr>
+                <tr>
+                    <td>Jueves</td>
+                    <td>9:30 - 14:30 // 16:30 - 21:00</td>
+                    <td>Andrea, Angela y Nuria</td>
+                    <td>Raquel, Andrea</td>
+                </tr>
+                <tr>
+                    <td>Viernes</td>
+                    <td>9:30 - 14:30 // 16:30 - 21:00</td>
+                    <td>Andrea, Angela y Nuria</td>
+                    <td>Raquel, Andrea</td>
+                </tr>
+                <tr>
+                    <td>Sábado</td>
+                    <td>9:30 - 14:00</td>
+                    <td>Andrea, Angela, Andrea y Nuria</td>
+                    
+                </tr>
+                <tr>
+                    <td>Domingo</td>
+                    <td>Libre</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="precios" class="section">
+        <h2>Precios</h2>
+        <div class="price-list">
+            <h3>Tintes</h3>
+            <ul>
+                <li>Tinte raiz - $20</li>
+                <li>Cambio de color - $25 -30</li>
+                <li>Balayage - $60</li>
+                <li>Coloración de raíces - $30</li>
+            </ul>
+        </div>
+        <div class="price-list">
+            <h3>Cortes de Pelo</h3>
+            <ul>
+                <li>Corte de caballero - $10</li>
+                <li>Corte de señora - $15</li>
+                <li>Corte infantil - $10</li>
+            </ul>
+        </div>
+        <div class="price-list">
+            <h3>Cortes o Peinados de Ocasión</h3>
+            <ul>
+                <li>Peinado para bodas - desde $25</li>
+                <li>Peinado para fiestas - desde $25</li>
+                <li>Recogidos elegantes - desde $30</li>
+                <li>Maquillaje y peinado - $40</li>
+            </ul>
+        </div>
+    </div>
+    <div id="contacto" class="section">
+        <h2>Contacto</h2>
+        <p>Email: contacto@attrezzos.com | Teléfono: 949202168</p>
+
+        <h2>Solicita tu cita</h2>
+    <form action="enviar_cita.php" method="POST">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+        
+        <label for="fecha">Fecha preferida para la cita:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        
+        <label for="hora">Hora preferida para la cita:</label>
+        <input type="time" id="hora" name="hora" required>
+        
+        <label for="comentarios">Comentarios adicionales:</label>
+        <textarea id="comentarios" name="comentarios"></textarea>
+        
+        <button type="submit">Enviar solicitud</button>
+    </form>
+    
+        <!-- Buzón de reseñas y valoraciones -->
+        <h2>Deja tu reseña</h2>
+        <form id="reviewForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="rating">Valoración:</label>
+            <select id="rating" name="rating" required>
+                <option value="1">1 ⭐</option>
+                <option value="2">2 ⭐</option>
+                <option value="3">3 ⭐</option>
+                <option value="4">4 ⭐</option>
+                <option value="5">5 ⭐</option>
+            </select>
+    
+            <label for="comment">Comentario:</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea>
+    
+            <button type="submit">Enviar Reseña</button>
+        </form>
+    
+        <h3>Reseñas</h3>
+        <div id="reviewsList"></div>
+        <div class="container">
+            <div class="contact-section">
+            
+        <a href="https://wa.me/34949202168" class="whatsapp-button">📞</a>
+    </div>
+    <h2>Contáctanos</h2>
+    <form>
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+   
